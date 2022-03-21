@@ -195,35 +195,6 @@ ALTER TABLE public.members ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 
 --
--- Name: test; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE public.test (
-    id integer NOT NULL,
-    cost integer,
-    deck integer,
-    cat character varying,
-    av integer
-);
-
-
-ALTER TABLE public.test OWNER TO postgres;
-
---
--- Name: test_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
---
-
-ALTER TABLE public.test ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
-    SEQUENCE NAME public.test_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1
-);
-
-
---
 -- Data for Name: Users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -237,16 +208,6 @@ COPY public."Users" (id, login, password) FROM stdin;
 --
 
 COPY public.applications (id, status, team, contest_article) FROM stdin;
-3	0	\N	testovyy-kontest
-4	0	1234	testovyy-kontest
-5	0	1234	testovyy-kontest
-10	2	rrr	12341324123
-7	2	атокййц	testovyy-kontest
-6	2	qwer	testovyy-kontest
-2	2	\N	testovyy-kontest
-9	1	\N	testovyy-kontest
-8	2	\N	testovyy-kontest
-1	1	\N	testovyy-kontest
 \.
 
 
@@ -255,9 +216,6 @@ COPY public.applications (id, status, team, contest_article) FROM stdin;
 --
 
 COPY public.contest_files (id, file, contest_article) FROM stdin;
-8	Теханализ  2016. Части 1-2.pdf	testovyy-kontest
-10	2.png	12341324123
-12	Aleksei_Khudobin.docx	asijdfasdf
 \.
 
 
@@ -282,9 +240,6 @@ COPY public.contest_statuses (id, name) FROM stdin;
 --
 
 COPY public.contests (id, name, article, status_id, info, organizer, sponsor, rules, timetable, results, materials) FROM stdin;
-65	asijdfasdf	asijdfasdf	2	poajsdfpoajd\nsdlfjadsl	iojoi	joij		iohjoihj		
-55	тестовый контест	testovyy-kontest	2	### здесь информация\n*онечь важная*\n\nда\n\n**ag**\n\n# qwjeoirj\n\n# idqhjioewrht\n\n![Minion](http://127.0.0.1:3000/contests/testovyy-kontest/2.png)\n1234	### здесь информация\n*онечь важная*\n\nда\n\n**ag**\n\n# qwjeoirj\n\n# idqhjioewrht\n\n![Minion](http://127.0.0.1:3000/contests/testovyy-kontest/2.png)\n1234	2234	3	4	5	6
-60	12341324123	12341324123	1							
 \.
 
 
@@ -293,32 +248,6 @@ COPY public.contests (id, name, article, status_id, info, organizer, sponsor, ru
 --
 
 COPY public.members (id, fio, email, phone, organization, application_id, is_trainer) FROM stdin;
-1	Худобин Алексей Олегович	1234Lexa4321@mail.ru	89109624656	нет	1	f
-2	1	1234Lexa4321@mail.ru	2	5	2	f
-6	qwer	1234lexa4321@mail.ru	1234	1234	6	t
-7	tyuj	axejlexa@mail.ru	tyuj	\N	6	f
-8	tyuj	notverer@mail.ru	notverer@mail.ru	\N	6	f
-9	цукпыварцу	1234Lexa4321@mail.ru	укецуке	цукцукп	7	t
-10	1	wheirhfqpwoiecj	1	\N	7	f
-11	2	axejlexa@mail.ru	2	\N	7	f
-12		notverer10@gmail.com			8	f
-13		aleksej.hudobin00@gmail.com			9	f
-15	1dswe	52346	4fwerg	\N	10	f
-14	egaerh	1234lexa4321@mail.ru	weqqw	vee	10	t
-16	sdreghw	123taewrf	qwer	\N	10	f
-\.
-
-
---
--- Data for Name: test; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.test (id, cost, deck, cat, av) FROM stdin;
-1	720	10	5	1
-2	935	17	1	1
-3	588	19	2	1
-4	619	5	4	0
-5	803	16	1	1
 \.
 
 
@@ -333,7 +262,7 @@ SELECT pg_catalog.setval('public."Users_id_seq"', 1, true);
 -- Name: applications_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.applications_id_seq', 10, true);
+SELECT pg_catalog.setval('public.applications_id_seq', 12, true);
 
 
 --
@@ -354,21 +283,14 @@ SELECT pg_catalog.setval('public.contest_statuses_id_seq', 8, true);
 -- Name: contests_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.contests_id_seq', 65, true);
+SELECT pg_catalog.setval('public.contests_id_seq', 66, true);
 
 
 --
 -- Name: members_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.members_id_seq', 16, true);
-
-
---
--- Name: test_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('public.test_id_seq', 5, true);
+SELECT pg_catalog.setval('public.members_id_seq', 18, true);
 
 
 --
@@ -441,14 +363,6 @@ ALTER TABLE ONLY public.contests
 
 ALTER TABLE ONLY public.members
     ADD CONSTRAINT members_pkey PRIMARY KEY (id);
-
-
---
--- Name: test test_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY public.test
-    ADD CONSTRAINT test_pkey PRIMARY KEY (id);
 
 
 --
