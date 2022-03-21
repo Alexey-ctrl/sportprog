@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<%- include('partials/head'); -%>
+<body>
+<h1><%= title %></h1>
+<p><a href="/">Назад</a></p>
+<hr>
+<div id="info"></div>
+<script>
+    $(function () {
+        $('#info').html(marked.parse(`<%= view %>`));
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <%- include('partials/head'); -%>
+    <body>
+        <h1><%= title %></h1>
+        <div class="flex">
+            <a href="/">На главную</a>
+            <a href="/contests/admin" style="margin-left: 5px">В управление</a>
+            <div id="create-contest"><button id="create-btn">Создать</button></div>
+        </div>
+        <hr>
+        <div id="contests"></div>
+
+        <script src="/javascripts/contests.js"></script>
+    </body>
+</html>

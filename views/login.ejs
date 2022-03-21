@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<%- include('partials/head'); -%>
+<body>
+<h1>Авторизация</h1>
+<input type="text" id="login">
+<input type="password" id="password">
+<input type="button" value="Войти" id="sing-in">
+<div><a href="/">На главную</a></div>
+
+<script>
+    $('#sing-in').click(function () {
+        $.post('/api/auth/login', {
+            login: $('#login').val(),
+            password: $('#password').val()
+        }, function (data) {
+            if (data === 'user is not exist') {
+                alertify.error('Не верный логин');
+                return;
+            }
+            if (data === 'password error') {
+                alertify.error('Не верный пароль');
+                return;
+            }
+            localStorage.setItem('token', data.token);
+            document.location.href = '/contests/admin';
+        });
+    });
+</script>
+</body>
+</html>

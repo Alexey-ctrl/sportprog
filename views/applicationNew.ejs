@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<%- include('partials/head'); -%>
+<body>
+<h1 id="contest-name"><%= title %></h1>
+<p>
+    <a href="/">Назад</a>
+    <button id="type-change" data-type="personal">Командная</button>
+</p>
+<hr>
+
+<div id="form-personal">
+    <h3>Личная</h3>
+    <div>
+        <lable for="fio-input">ФИО</lable>
+        <input type="text" name="fio" id="fio-input">
+    </div>
+    <div>
+        <lable for="phone-input">Телефон</lable>
+        <input type="text" name="phone" id="phone-input">
+    </div>
+    <div>
+        <lable for="email-input">E-mail</lable>
+        <input type="email" name="email" id="email-input">
+    </div>
+    <div>
+        <lable for="organization-input">Организация</lable>
+        <input type="text" name="organization" id="organization-input">
+    </div>
+    <p><input type="button" data-type="personal" id="send-form" value="Отправить"></p>
+</div>
+
+<div id="form-team">
+    <h3>Командная</h3>
+    <div class="member" id="trainer">
+        <p>
+            <lable for="trainer-input">Тренер</lable>
+        </p>
+        <div>
+            <lable for="team-input-team">Команда</lable>
+            <input type="text" name="team" id="team-input">
+        </div>
+        <div>
+            <lable for="fio-input-team">ФИО</lable>
+            <input type="text" name="fio" id="fio-input-team">
+        </div>
+        <div>
+            <lable for="phone-input-team">Телефон</lable>
+            <input type="text" name="phone" id="phone-input-team">
+        </div>
+        <div>
+            <lable for="email-input-team">E-mail</lable>
+            <input type="email" name="email" id="email-input-team">
+        </div>
+        <div>
+            <lable for="organization-input-team">Организация</lable>
+            <input type="text" name="organization" id="organization-input-team">
+        </div>
+    </div>
+    <div id="members"></div>
+    <hr>
+    <p><input type="button" id="add-button" value="Добавить участника"></p>
+    <input type="button" data-type="team" id="send-form-team" value="Отправить">
+</div>
+
+<script>
+    const contest = '<%= contest %>';
+</script>
+<script src="/javascripts/applicationNew.js"></script>
+</body>
+</html>

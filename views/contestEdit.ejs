@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<%- include('partials/head'); -%>
+<body>
+<h1 id="contest-name"><%= title %></h1>
+<p><a href="/contests/edit">Назад</a></p>
+<hr>
+<div id="contest">
+    <div id="contest-status">
+        <p>Статус:</p>
+        <select name="status" id="contest-status-select">
+            <% statuses.forEach(status => { %>
+                <option value="<%= status.id %>"><%= status.name %></option>
+            <% }); %>
+        </select>
+    </div>
+
+    <div id="contest-info" class="info-block info-view">
+        <p>Общая информация:</p>
+        <div class="flex">
+            <textarea name="info" id="info-text" class="contest-text" cols="30" rows="10"></textarea>
+            <div id="info-preview"></div>
+        </div>
+        <div><input type="button" class="save-btn" value="Сохранить" data-table="info"></div>
+    </div>
+    <div id="contest-org" class="info-block info-view">
+        <p>Органазаторы:</p>
+        <div class="flex">
+            <textarea name="org" id="org-text" class="contest-text" cols="30" rows="10"></textarea>
+            <div id="org-preview"></div>
+        </div>
+        <div><input type="button" class="save-btn" value="Сохранить" data-table="organizer"></div>
+    </div>
+    <div id="contest-sponsor" class="info-block info-view">
+        <p>Спонсоры:</p>
+        <div class="flex">
+            <textarea name="sponsor" id="sponsor-text"  class="contest-text" cols="30" rows="10"></textarea>
+            <div id="sponsor-preview"></div>
+        </div>
+        <div><input type="button" class="save-btn" value="Сохранить" data-table="sponsor"></div>
+    </div>
+    <div id="contest-roles" class="info-block info-view">
+        <p>Правила соревнований :</p>
+        <div class="flex">
+            <textarea name="roles" id="roles-text"  class="contest-text" cols="30" rows="10"></textarea>
+            <div id="roles-preview"></div>
+        </div>
+        <div><input type="button" class="save-btn" value="Сохранить" data-table="rules"></div>
+    </div>
+    <div id="contest-time" class="info-block info-view">
+        <p>Рассписание:</p>
+        <div class="flex">
+            <textarea name="time" id="time-text"  class="contest-text" cols="30" rows="10"></textarea>
+            <div id="time-preview"></div>
+        </div>
+        <div><input type="button" class="save-btn" value="Сохранить" data-table="timetable"></div>
+    </div>
+    <div id="contest-result" class="info-block info-view">
+        <p>Результаты:</p>
+        <div class="flex">
+            <textarea name="result" id="result-text"  class="contest-text" cols="30" rows="10"></textarea>
+            <div id="result-preview"></div>
+        </div>
+        <div><input type="button" class="save-btn" value="Сохранить" data-table="results"></div>
+    </div>
+    <div id="contest-material" class="info-block info-view">
+        <p>Материалы соревнования:</p>
+        <div class="flex">
+            <textarea name="result" id="material-text"  class="contest-text" cols="30" rows="10"></textarea>
+            <div id="material-preview"></div>
+        </div>
+        <div><input type="button" class="save-btn" value="Сохранить" data-table="materials"></div>
+    </div>
+
+    <div id="contest-files">
+        <p>Файлы контеста:</p>
+        <div id="file-loader"><input type="file" name="contest-file-input" id="file-input"></div>
+        <div id="files-view"></div>
+    </div>
+</div>
+
+<script src="/javascripts/contestEdit.js"></script>
+</body>
+</html>

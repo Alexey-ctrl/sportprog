@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<%- include('partials/head'); -%>
+<body>
+<h1><%= title %></h1>
+<div>
+    <p><a href="/application">К заявкам</a></p>
+</div>
+<hr>
+<div id="applications"></div>
+
+<script>const contest = '<%= contest %>'</script>
+<script src="/javascripts/applicationView.js"></script>
+</body>
+</html>
